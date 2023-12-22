@@ -20,7 +20,7 @@ The `LiquorDataScraper` project is an example of a specialized web scraping appl
    ```
    pip install -r requirements.txt
    ```
-3. Download the appropriate version of `chromedriver.exe` for your version of Chrome from [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/).
+3. Download the appropriate version of `chromedriver.exe` for your version of Chrome from [ChromeDriver - WebDriver for Chrome](https://googlechromelabs.github.io/chrome-for-testing/).
 4. Place the `chromedriver.exe` in the `src/scrapers/driver` folder.
 
 ## Usage
