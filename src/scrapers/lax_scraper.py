@@ -1,9 +1,7 @@
-import time
-from base_scraper import BaseScraper
-from urllib.parse import parse_qs, urlencode, urljoin, urlparse, urlunparse
-from base_scraper import BaseScraper
-from selenium.webdriver.common.by import By
+from urllib.parse import urljoin
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
+from .base_scraper import BaseScraper
 
 
 class LaxScraper(BaseScraper):
@@ -31,12 +29,12 @@ class LaxScraper(BaseScraper):
                             size_element = title_element.find_element(
                                 By.TAG_NAME, 'span')
                             product_name = title_element.text.replace(
-                            size_element.text, '').strip()
+                                size_element.text, '').strip()
                             product_size = size_element.text.strip('()')
                         except NoSuchElementException:
                             product_name = title_element.text
                             product_size = None
-                        
+
                         price_element = product.find_element(
                             By.CSS_SELECTOR, "span.rd14 b")
                         product_price = float(
@@ -70,8 +68,3 @@ class LaxScraper(BaseScraper):
             self.write_to_csv(
                 product_data, ['name', 'size', 'price', 'category', 'URL', 'photoURL'])
         return product_data
-
-
-base_URL = "https://www.laxwineandspirits.com/"
-scraper = LaxScraper(base_URL, 'data/laxwineandspirits.csv')
-scraper.scrape()

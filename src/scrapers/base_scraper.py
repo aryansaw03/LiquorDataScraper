@@ -1,20 +1,17 @@
+import csv
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
-import os
-import csv
-
 
 class BaseScraper:
-
     def __init__(self, base_URL, output_file=None):
         self.base_URL = base_URL
         chrome_options = Options()
         chrome_options.add_experimental_option(
             "excludeSwitches", ['enable-logging'])
         chrome_options.add_argument("--log-level=3")
-        chrome_options.add_argument("--headless")
+        # chrome_options.add_argument("--headless")
         chrome_options.add_argument("--window-size=1920,1080")
         driver_path = os.path.join(
             os.path.dirname(__file__), 'driver', 'chromedriver.exe')
@@ -40,6 +37,8 @@ class BaseScraper:
     def open_webpage(self, URL):
         try:
             self.driver.get(URL)
+            if "loudfare" in self.driver.title:
+                print("blocked")
         except Exception as e:
             print(f"Error fetching URL {URL}: {e}")
 

@@ -1,9 +1,7 @@
-import time
-from base_scraper import BaseScraper
-from urllib.parse import parse_qs, urlencode, urljoin, urlparse, urlunparse
-from base_scraper import BaseScraper
-from selenium.webdriver.common.by import By
+from urllib.parse import urljoin
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
+from .base_scraper import BaseScraper
 
 
 class ExoticScraper(BaseScraper):
@@ -60,8 +58,3 @@ class ExoticScraper(BaseScraper):
             self.write_to_csv(
                 product_data, ['name', 'price', 'category', 'URL', 'photoURL'])
         return product_data
-
-
-base_URL = "https://www.exoticwinespirits.com/"
-scraper = ExoticScraper(base_URL, 'data/exoticwineandspirits.csv')
-scraper.scrape()

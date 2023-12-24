@@ -25,4 +25,4 @@ The `LiquorDataScraper` project is an example of a specialized web scraping appl
 
 ## Usage
 
-[Include instructions on how to use the project, run the scrapers, etc.]
+Run main.py
