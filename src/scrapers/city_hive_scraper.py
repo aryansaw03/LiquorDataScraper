@@ -1,6 +1,5 @@
 from urllib.parse import parse_qs, urlencode, urljoin, urlparse, urlunparse
-# from .base_scraper import BaseScraper
-from base_scraper import BaseScraper
+from .base_scraper import BaseScraper
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
@@ -113,8 +112,8 @@ class CityHiveScraper(BaseScraper):
         return product_data
 
 
-base_url = "https://liquorbarn.com/"
-scraper = CityHiveScraper(base_url)
-product_data = scraper.scrape()
-for product in product_data:
-    print(product[:4])
+# base_url = "https://liquorbarn.com/"
+# scraper = CityHiveScraper(base_url)
+# product_data = scraper.scrape()
+# for product in product_data:
+#     print(product[:4])
