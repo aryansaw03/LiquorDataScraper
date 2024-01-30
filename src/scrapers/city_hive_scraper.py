@@ -110,10 +110,3 @@ class CityHiveScraper(BaseScraper):
             self.write_to_csv(
                 product_data, ['name', 'size', 'price', 'category', 'URL', 'photoURL'])
         return product_data
-
-
-# base_url = "https://liquorbarn.com/"
-# scraper = CityHiveScraper(base_url)
-# product_data = scraper.scrape()
-# for product in product_data:
-#     print(product[:4])
